@@ -1,29 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Method } from "@/components/site/Method";
+import { Benefits } from "@/components/site/Benefits";
+import { Teachers } from "@/components/site/Teachers";
+import { Testimonials } from "@/components/site/Testimonials";
+import { CTABand } from "@/components/site/CTABand";
+import { FAQ } from "@/components/site/FAQ";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Speak To Learn — Inglês premium, ao vivo e personalizado" },
+      { name: "description", content: "Aprenda inglês de forma natural com um método premium, aulas ao vivo e professores experientes. Agende sua avaliação gratuita." },
+      { property: "og:title", content: "Speak To Learn — Inglês premium" },
+      { property: "og:description", content: "Método natural e estruturado, com aulas ao vivo e foco em resultados reais." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen bg-background text-foreground">
+      <Header />
+      <Hero />
+      <Method />
+      <Benefits />
+      <Teachers />
+      <Testimonials />
+      <CTABand />
+      <FAQ />
+      <Footer />
+    </main>
   );
 }
