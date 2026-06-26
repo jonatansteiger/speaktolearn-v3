@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Mic, Video, MoreHorizontal, PhoneOff, Sparkles, Users, TrendingUp,
 } from "lucide-react";
