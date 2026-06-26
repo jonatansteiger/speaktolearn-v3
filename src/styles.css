@@ -69,9 +69,9 @@
   --green: oklch(0.510 0.087 154);         /* #2D7B50 */
   --gold: oklch(0.735 0.115 84);           /* #C6A24B */
   --gold-soft: oklch(0.870 0.060 86);
-  --header: oklch(1 0 0);                  /* pure white */
+  --header: transparent;
 
-  --background: var(--cream);
+  --background: oklch(1 0 0);                  /* pure white */
   --foreground: var(--ink);
 
   --card: oklch(0.985 0.010 80);
