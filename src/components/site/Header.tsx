@@ -25,7 +25,7 @@ export function Header() {
     <header
       className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
       style={{
-        background: "var(--header)",
+        background: scrolled ? "oklch(1 0 0 / 0.72)" : "transparent",
         backdropFilter: scrolled ? "saturate(160%) blur(14px)" : "none",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
       }}
