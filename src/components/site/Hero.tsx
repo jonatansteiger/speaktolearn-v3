@@ -27,10 +27,9 @@ export function Hero() {
         <Reveal>
           <div>
             <h1 className="text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
-              Aprenda inglês de forma{" "}
-              <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
-              <br className="hidden sm:block" /> com um{" "}
-              <span style={{ color: "var(--gold)" }}>método premium</span> que acelera sua evolução.
+              Aprenda inglês de forma <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
+              <br /><br /><br />
+              com um <span style={{ color: "var(--gold)" }}>método único</span> que acelera sua evolução.
             </h1>
 
             <p className="mt-5 max-w-lg text-base leading-relaxed text-foreground/70">
@@ -38,7 +37,7 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#cta" className="btn-primary">Agende sua avaliação gratuita</a>
+              <a href="#cta" className="btn-primary">Quero aprender inglês</a>
               <a href="#metodo" className="btn-ghost">
                 <Sparkles size={15} /> Saiba mais
               </a>

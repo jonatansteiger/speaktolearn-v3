@@ -45,7 +45,7 @@ export function CTABand() {
               </ul>
 
               <div className="flex flex-col items-start gap-2 lg:items-end">
-                <a href="#" className="btn-gold">Agende sua avaliação</a>
+                <a href="#" className="btn-gold">Quero aprender inglês</a>
                 <p className="text-xs text-white/55">Sem compromisso. 100% online.</p>
               </div>
             </div>

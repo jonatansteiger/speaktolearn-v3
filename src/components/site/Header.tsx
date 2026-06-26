@@ -46,7 +46,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <a href="#cta" className="btn-primary text-sm">Agende sua avaliação</a>
+          <a href="#cta" className="btn-primary text-sm">Quero aprender inglês</a>
         </div>
 
         <button
@@ -74,7 +74,7 @@ export function Header() {
               ))}
             </nav>
             <a href="#cta" onClick={() => setOpen(false)} className="btn-primary mt-4 w-full text-sm">
-              Agende sua avaliação
+              Quero aprender inglês
             </a>
           </div>
         </div>
