@@ -4,28 +4,20 @@ export function Logo({ variant = "ink" }: { variant?: "ink" | "cream" }) {
   return (
     <a href="#top" className="flex items-center gap-2.5" aria-label="Speak To Learn">
       <span
-        className="grid h-9 w-9 place-items-center rounded-full"
-        style={{ background: color }}
+        className="grid h-10 w-9 place-items-center"
+        style={{
+          background: color,
+          clipPath: "polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)",
+        }}
       >
-        <span
-          className="font-serif text-base font-semibold leading-none"
-          style={{ color: gold }}
-        >
-          S
-        </span>
+        <span className="font-serif text-base font-bold leading-none -mt-1" style={{ color: gold }}>S</span>
       </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className="font-serif text-[15px] font-semibold tracking-tight"
-          style={{ color }}
-        >
-          Speak <span style={{ color: gold }}>To</span> Learn
+      <span className="flex flex-col leading-[1.05]">
+        <span className="font-serif text-[13px] font-semibold tracking-[0.05em]" style={{ color }}>
+          SPEAK
         </span>
-        <span
-          className="mt-1 text-[10px] uppercase tracking-[0.28em]"
-          style={{ color: variant === "cream" ? "rgba(244,235,221,0.6)" : "var(--muted-foreground)" }}
-        >
-          English School
+        <span className="font-serif text-[13px] font-semibold tracking-[0.05em]" style={{ color }}>
+          TO LEARN
         </span>
       </span>
     </a>
