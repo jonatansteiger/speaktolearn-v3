@@ -25,7 +25,7 @@ export function Header() {
     <header
       className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "color-mix(in oklab, var(--cream) 88%, transparent)" : "transparent",
+        background: "var(--header)",
         backdropFilter: scrolled ? "saturate(160%) blur(14px)" : "none",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
       }}
