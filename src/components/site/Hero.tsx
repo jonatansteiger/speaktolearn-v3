@@ -28,7 +28,7 @@ export function Hero() {
           <div>
             <h1 className="text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
               Aprenda inglês de forma <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
-              <br /><br /><br />
+              <br />
               com um <span style={{ color: "var(--gold)" }}>método único</span> que acelera sua evolução.
             </h1>
 
