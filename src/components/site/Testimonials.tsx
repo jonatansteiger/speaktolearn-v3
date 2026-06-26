@@ -7,26 +7,11 @@ import s2 from "@/assets/student-2.jpg";
 import s3 from "@/assets/student-3.jpg";
 
 const all = [
-  {
-    text: "Em seis meses passei a conduzir reuniões internacionais em inglês com naturalidade. O método é leve e os professores são excepcionais.",
-    name: "Camila Andrade", role: "Gerente de Produto, fintech", img: s1,
-  },
-  {
-    text: "O acompanhamento personalizado fez toda a diferença. Saí do intermediário travado para falar com clientes nos Estados Unidos sem medo.",
-    name: "Rafael Mendes", role: "Diretor Comercial", img: s2,
-  },
-  {
-    text: "Foi a primeira escola onde eu realmente vi evolução. As aulas ao vivo me obrigaram a praticar e os feedbacks aceleraram tudo.",
-    name: "Larissa Pires", role: "Analista de Marketing", img: s3,
-  },
-  {
-    text: "Estudo entre viagens e o time da Speak To Learn adaptou meu plano por completo. Recomendo para qualquer executivo.",
-    name: "Eduardo Lima", role: "CFO, indústria", img: s2,
-  },
-  {
-    text: "Cheguei nas certificações com muito mais segurança. A Karen é simplesmente sensacional na preparação para o IELTS.",
-    name: "Isabela Rocha", role: "Médica, residente no exterior", img: s3,
-  },
+  { text: "O método me ajudou a destravar minha conversação e conquistar novas oportunidades.", name: "Rafael S.", role: "Gerente de Projetos", img: s2 },
+  { text: "As aulas ao vivo fazem toda a diferença. Aprendi de verdade e com muito mais confiança.", name: "Juliana N.", role: "Advogada", img: s1 },
+  { text: "Hoje me comunico com mais segurança no trabalho e em viagens.", name: "Gerson L.", role: "Empresário", img: s2 },
+  { text: "Cheguei nas certificações muito mais preparada. Equipe excepcional.", name: "Isabela R.", role: "Médica", img: s3 },
+  { text: "Plano flexível e atendimento próximo. Recomendo para qualquer executivo.", name: "Eduardo L.", role: "CFO", img: s2 },
 ];
 
 export function Testimonials() {
@@ -57,47 +42,57 @@ export function Testimonials() {
   const go = (dir: -1 | 1) => setIndex((i) => (i + dir + pages) % pages);
 
   return (
-    <section id="depoimentos" className="py-24 sm:py-28">
+    <section id="depoimentos" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeader eyebrow="Depoimentos" title="Alunos que transformam seus resultados" />
-            <div className="hidden gap-2 sm:flex">
-              <button onClick={() => go(-1)} aria-label="Anterior" className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:bg-secondary">
-                <ChevronLeft size={18} />
-              </button>
-              <button onClick={() => go(1)} aria-label="Próximo" className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:bg-secondary">
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          </div>
+          <SectionHeader eyebrow="Depoimentos" title="Alunos que transformam seus resultados" align="center" />
         </Reveal>
 
-        <div className="mt-12 overflow-hidden">
-          <div
-            className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{ transform: `translateX(calc(${index} * -${100 / perView}%))` }}
+        <div className="relative mt-14">
+          {/* arrows */}
+          <button
+            onClick={() => go(-1)}
+            aria-label="Anterior"
+            className="absolute -left-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-card transition-colors hover:bg-secondary sm:grid lg:-left-6"
           >
-            {all.map((t) => (
-              <div key={t.name + t.text} className="shrink-0 px-3" style={{ width: `${100 / perView}%` }}>
-                <article className="card-elevated card-elevated-hover h-full p-7">
-                  <Quote size={36} strokeWidth={1} style={{ color: "var(--gold)" }} />
-                  <div className="mt-3 flex gap-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={15} fill="var(--gold)" stroke="var(--gold)" />
-                    ))}
-                  </div>
-                  <p className="mt-5 font-serif text-lg leading-snug text-[var(--blue-deep)]">“{t.text}”</p>
-                  <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                    <img src={t.img} alt={t.name} width={48} height={48} loading="lazy" className="h-12 w-12 rounded-full object-cover" />
-                    <div>
-                      <div className="text-sm font-semibold text-[var(--blue-deep)]">{t.name}</div>
-                      <div className="text-xs text-muted-foreground">{t.role}</div>
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={() => go(1)}
+            aria-label="Próximo"
+            className="absolute -right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-card transition-colors hover:bg-secondary sm:grid lg:-right-6"
+          >
+            <ChevronRight size={18} />
+          </button>
+
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{ transform: `translateX(calc(${index} * -${100 / perView}%))` }}
+            >
+              {all.map((t, idx) => (
+                <div key={idx} className="shrink-0 px-3" style={{ width: `${100 / perView}%` }}>
+                  <article className="card-elevated card-elevated-hover flex h-full flex-col p-6">
+                    <div className="flex items-center justify-between">
+                      <Quote size={28} strokeWidth={1.25} style={{ color: "var(--gold)" }} />
+                      <div className="flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} size={13} fill="var(--gold)" stroke="var(--gold)" />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </article>
-              </div>
-            ))}
+                    <p className="mt-4 grow text-[13.5px] leading-relaxed text-foreground/80">{t.text}</p>
+                    <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                      <img src={t.img} alt={t.name} width={40} height={40} loading="lazy" className="h-10 w-10 rounded-full object-cover" />
+                      <div>
+                        <div className="text-sm font-semibold text-[var(--blue-deep)]">{t.name}</div>
+                        <div className="text-xs text-muted-foreground">{t.role}</div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -109,7 +104,7 @@ export function Testimonials() {
               aria-label={`Ir para slide ${i + 1}`}
               className="h-1.5 rounded-full transition-all"
               style={{
-                width: i === index ? 28 : 10,
+                width: i === index ? 24 : 8,
                 background: i === index ? "var(--blue-deep)" : "color-mix(in oklab, var(--ink) 18%, transparent)",
               }}
             />
