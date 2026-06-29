@@ -26,11 +26,23 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
         <Reveal>
           <div>
-            <h1 className="text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
+            <span
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium tracking-wide"
+              style={{
+                background: "color-mix(in oklab, var(--cream) 65%, white)",
+                borderColor: "color-mix(in oklab, var(--gold) 35%, transparent)",
+                color: "var(--blue-deep)",
+              }}
+            >
+              <span className="live-dot h-2 w-2 rounded-full" style={{ background: "var(--green)" }} />
+              Professores brasileiros nos EUA
+            </span>
+            <h1 className="mt-5 text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
               Aprenda inglês de forma <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
               <br />
               com um <span style={{ color: "var(--gold)" }}>método único</span> que acelera sua evolução.
             </h1>
+
 
             <p className="mt-5 max-w-lg text-base leading-relaxed text-foreground/70">
               Aulas ao vivo, personalizadas e focadas no que realmente importa.
