@@ -50,9 +50,6 @@ export function Hero() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a href="#cta" className="btn-primary">Quero aprender inglês</a>
-              <a href="#metodo" className="btn-ghost">
-                <Sparkles size={15} /> Saiba mais
-              </a>
             </div>
 
             <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
