@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
 const links = [
@@ -13,7 +12,6 @@ const links = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [showFloatingCTA, setShowFloatingCTA] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -74,27 +72,6 @@ export function Header() {
         </div>
       </div>
 
-      {open && (
-        <div className="lg:hidden">
-          <div className="mx-4 mb-4 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
-            <nav className="flex flex-col">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="border-b border-border py-3 text-sm text-foreground/80 last:border-b-0"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <a href="#cta" onClick={() => setOpen(false)} className="btn-primary mt-4 w-full text-sm">
-              Quero aprender inglês
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
