@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { Method } from "@/components/site/Method";
+import { Classes } from "@/components/site/Classes";
+
 import { Benefits } from "@/components/site/Benefits";
 import { Teachers } from "@/components/site/Teachers";
 import { Testimonials } from "@/components/site/Testimonials";
