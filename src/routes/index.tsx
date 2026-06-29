@@ -29,6 +29,8 @@ function Index() {
       <Header />
       <Hero />
       <Method />
+      <Classes />
+
       <Benefits />
       <Teachers />
       <Testimonials />
