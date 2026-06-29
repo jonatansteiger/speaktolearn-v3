@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Mic, Video, MoreHorizontal, PhoneOff, Sparkles, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 import videoCall from "@/assets/video-call.jpg";
+import usaFlagAsset from "@/assets/usa-flag.gif.asset.json";
 
 const differentiators = [
   { icon: Sparkles, label: "Método natural e estruturado" },
@@ -36,6 +37,7 @@ export function Hero() {
             >
               <span className="live-dot h-2 w-2 rounded-full" style={{ background: "var(--green)" }} />
               Professores brasileiros nos EUA
+              <img src={usaFlagAsset.url} alt="Bandeira dos EUA animada" className="h-4 w-4 rounded-full object-cover" />
             </span>
             <h1 className="mt-5 text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
               Aprenda inglês de forma <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
