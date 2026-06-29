@@ -12,10 +12,20 @@ const links = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [showFloatingCTA, setShowFloatingCTA] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const heroBtn = document.querySelector("#top .btn-primary");
+      if (heroBtn) {
+        const rect = heroBtn.getBoundingClientRect();
+        setShowFloatingCTA(rect.bottom < 0);
+      } else {
+        setShowFloatingCTA(window.scrollY > 400);
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -49,13 +59,19 @@ export function Header() {
           <a href="#cta" className="btn-primary text-sm">Quero aprender inglês</a>
         </div>
 
-        <button
-          aria-label="Abrir menu"
-          onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground lg:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <a
+            href="#cta"
+            className="btn-primary text-xs px-3.5 py-2 transition-all duration-500"
+            style={{
+              opacity: showFloatingCTA ? 1 : 0,
+              transform: showFloatingCTA ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.9)",
+              pointerEvents: showFloatingCTA ? "auto" : "none",
+            }}
+          >
+            Quero aprender inglês
+          </a>
+        </div>
       </div>
 
       {open && (
