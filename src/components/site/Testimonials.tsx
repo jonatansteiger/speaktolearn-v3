@@ -118,6 +118,12 @@ export function Testimonials() {
           </p>
         </Reveal>
 
+        <Reveal className="mt-12">
+          <div className="mx-auto max-w-3xl">
+            <LeadImage />
+          </div>
+        </Reveal>
+
         <div className="relative mt-14">
           <button
             onClick={() => go(-1)}
