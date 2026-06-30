@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
-import { SectionHeader } from "./Method";
+import { SectionHeader, SectionOrnament } from "./Method";
 
 export function Classes() {
   return (
@@ -21,8 +21,9 @@ export function Classes() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
+            <SectionOrnament align="center" />
             <span
-              className="text-xs font-semibold uppercase tracking-[0.22em]"
+              className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.22em]"
               style={{ color: "var(--gold)" }}
             >
               Nossas Turmas

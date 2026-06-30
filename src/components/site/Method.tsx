@@ -52,14 +52,32 @@ export function Method() {
   );
 }
 
+export function SectionOrnament({ align = "center" }: { align?: "left" | "center" }) {
+  return (
+    <div
+      className={`flex items-center gap-2 ${align === "center" ? "justify-center" : "justify-start"}`}
+      aria-hidden="true"
+    >
+      <span className="h-px w-8" style={{ background: "color-mix(in oklab, var(--gold) 70%, transparent)" }} />
+      <span
+        className="block h-1.5 w-1.5 rotate-45"
+        style={{ background: "var(--gold)", boxShadow: "0 0 0 3px color-mix(in oklab, var(--gold) 18%, transparent)" }}
+      />
+      <span className="h-px w-8" style={{ background: "color-mix(in oklab, var(--gold) 70%, transparent)" }} />
+    </div>
+  );
+}
+
 export function SectionHeader({
   eyebrow, title, description, align = "left",
 }: { eyebrow: string; title: string; description?: string; align?: "left" | "center" }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <span className="eyebrow">{eyebrow}</span>
+      <SectionOrnament align={align} />
+      <span className="eyebrow mt-4 inline-block">{eyebrow}</span>
       <h2 className="mt-3 text-balance text-3xl leading-[1.1] sm:text-4xl lg:text-[42px]">{title}</h2>
       {description && <p className="mt-4 text-base text-foreground/70">{description}</p>}
     </div>
   );
 }
+
