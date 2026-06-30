@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
-import { SectionHeader } from "./Method";
+import { SectionHeader, SectionOrnament } from "./Method";
 
 export function Classes() {
   return (
