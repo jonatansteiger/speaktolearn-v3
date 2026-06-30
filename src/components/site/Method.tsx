@@ -1,10 +1,10 @@
-import { Ear, MessagesSquare, Briefcase, LineChart } from "lucide-react";
+import { Ear, MessagesSquare, Users, LineChart } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const steps = [
   { n: "1", icon: Ear, title: "Ouvir", text: "Desenvolva sua escuta com contexto real,\u00a0com estruturas, ritmos e vocabulário desde o primeiro encontro." },
   { n: "2", icon: MessagesSquare, title: "Imitar", text: "Repetição guiada, pronúncia modelada e segurança para se arriscar." },
-  { n: "3", icon: Briefcase, title: "Praticar", text: "A turma vira laboratório de conversação com troca constante e contextual." },
+  { n: "3", icon: Users, title: "Praticar", text: "A turma vira laboratório de conversação com troca constante e contextual." },
   { n: "4", icon: LineChart, title: "Comunicar", text: "Falar com naturalidade em situações reais — não apenas acertar exercícios." },
 ];
 
