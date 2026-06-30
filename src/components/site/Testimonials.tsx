@@ -5,32 +5,51 @@ import { SectionHeader } from "./Method";
 
 type Item = { text: string; time: string };
 
-// Placeholders — serão substituídos pelos depoimentos reais do cliente.
 const all: Item[] = [
   {
     text:
-      "O curso Intensivo foi sensacional! Em 2 meses conseguimos aprender uma quantidade enorme de expressões, palavras novas, melhoramos a fala e a escuta, melhoramos a leitura e a habilidade de interpretar as histórias do livro que estávamos usando, e também entender oque funciona e oque não funciona na prática em uma conversa. E tudo isso pelo método natural, oque com certeza foi oque fez com que nosso aprendizado fosse tão proveitoso em pouco tempo. Aprendemos os significados das palavras como um nativo realmente aprende, sem traduções.",
+      "O curso Intensivo foi sensacional!\nEm 2 meses conseguimos aprender uma quantidade enorme de expressões, palavras novas, melhoramos a fala e a escuta, melhoramos a leitura e a habilidade de interpretar as histórias do livro que estávamos usando, e também entender oque funciona e oque não funciona na prática em uma conversa.\nE tudo isso pelo método natural, oque com certeza foi oque fez com que nosso aprendizado fosse tão proveitoso em pouco tempo. Aprendemos os significados das palavras como um nativo realmente aprende, sem traduções.",
     time: "16:06",
   },
   {
     text:
-      "Estou gostando muito das aulas. Creio que são as melhores aulas de inglês que já tive. O método, as conversas e os materiais estão me ajudando muito.",
-    time: "09:42",
+      "Estou gostando muito das aulas!\nCreio que são as melhores aulas de inglês que já tive.\nO método, as conversações, estão me ajudando muito!",
+    time: "09:31",
   },
   {
     text:
-      "Em poucas semanas já percebi diferença na minha conversação. As aulas são leves, mas extremamente produtivas.",
-    time: "20:18",
+      "Gostaria de dar o meu feedback sobre o curso e dizer que achei muito legal e proveitoso.\nO uso do livro 'English by Nature Method' foi um ponto super positivo, pois ele ensina por níveis e sem tradução, tudo direto na língua que estávamos aprendendo, o inglês. Além disso, o ambiente e o compromisso de ter as aulas regularmente dão muito ânimo para estudar, ainda mais compartilhando a jornada com outras pessoas. Para completar, a professora, por morar atualmente nos EUA, conseguiu nos dar muitas dicas valiosas, já que ela mesma passou por esse processo de aprender inglês.",
+    time: "08:20",
   },
   {
     text:
-      "O Reading the West mudou completamente minha relação com o inglês. Hoje leio clássicos e debato com confiança.",
-    time: "14:30",
+      "Está sendo uma experiência muito legal!\nO professor e os colegas são excelentes.\nE o livro utilizado em aula é muito instrutivo.\nEu penso que é uma aula excelente para qualquer nível, desde quem sabe pouco até quem tem um inglês consolidado.",
+    time: "10:12",
   },
   {
     text:
-      "Recomendo de olhos fechados. Professores atenciosos, método claro e resultados reais.",
-    time: "11:05",
+      "Tanto as aulas do professor Marco, quanto da professora Nicole, têm sido muito boas para o meu inglês:\nÉ perceptível a mudança na minha pronúncia e uma facilidade maior em se expressar; e também pude ver a mesma evolução nos meus colegas de ambas as turmas.\nSão abordagens diferentes de cada professor, mas elas se complementaram muito bem para mim.",
+    time: "18:42",
+  },
+  {
+    text:
+      "As aulas são muito boas.\nO que mais está ajudando é o professor Pedro nos estimular a conversar.\nEu inclusive falei para o prof. que entrei na aula com o intuito de melhorar o inglês, colocar de uma forma mais prática.\nE o professor nos coloca para conversar e isso é muito bom!",
+    time: "15:55",
+  },
+  {
+    text:
+      "Oi, boa tarde!\nEu estou gostando muito das aulas, do professor e da turma! 😁",
+    time: "09:41",
+  },
+  {
+    text:
+      "É a primeira vez que estou acessando o inglês pelo Método Natural, que é proposto pela Speak To Learn. Tanto o método como o material são ótimos. A professora ministra as aulas com excelência e didática.\nEstou amando o curso!",
+    time: "16:14",
+  },
+  {
+    text:
+      "Minha experiência tem sido excelente, superando minhas expectativas desde o início.\nFico muito feliz em perceber minha evolução em tão pouco tempo.\nA professora Marya é extremamente atenciosa, e estou realmente encantada com a turma.",
+    time: "15:48",
   },
 ];
 
