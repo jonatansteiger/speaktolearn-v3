@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronLeft, ChevronRight, Hand } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
 import testimonialLead from "@/assets/testimonial-lead.png.asset.json";
@@ -87,10 +87,22 @@ export function Testimonials() {
   const total = all.length;
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [showHint, setShowHint] = useState(false);
+  const interactedRef = useRef(false);
 
-  const go = (dir: -1 | 1) => setIndex((i) => (i + dir + total) % total);
+  const markInteracted = () => {
+    interactedRef.current = true;
+    setShowHint(false);
+  };
+
+  const go = (dir: -1 | 1) => {
+    markInteracted();
+    setIndex((i) => (i + dir + total) % total);
+  };
 
   const onTouchStart = (e: React.TouchEvent) => {
+    markInteracted();
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
   };
@@ -100,10 +112,39 @@ export function Testimonials() {
   };
   const onTouchEnd = () => {
     const dx = touchDeltaX.current;
-    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    if (Math.abs(dx) > 50) setIndex((i) => (i + (dx < 0 ? 1 : -1) + total) % total);
     touchStartX.current = null;
     touchDeltaX.current = 0;
   };
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !interactedRef.current && !timer) {
+            timer = setTimeout(() => {
+              if (interactedRef.current) return;
+              setShowHint(true);
+              // animation runs twice (~1.6s each) = 3.2s, then hide
+              hideTimer = setTimeout(() => setShowHint(false), 3400);
+            }, 10000);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      if (timer) clearTimeout(timer);
+      if (hideTimer) clearTimeout(hideTimer);
+    };
+  }, []);
+
 
   return (
     <section id="depoimentos" className="py-20 sm:py-24">
@@ -125,7 +166,7 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <div className="relative mt-14">
+        <div ref={carouselRef} className="relative mt-14">
           <button
             onClick={() => go(-1)}
             aria-label="Anterior"
@@ -160,7 +201,33 @@ export function Testimonials() {
               ))}
             </div>
           </div>
+
+          {showHint && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
+            >
+              <style>{`
+                @keyframes stl-swipe {
+                  0% { transform: translateX(40px) rotate(-8deg); opacity: 0; }
+                  15% { opacity: 1; }
+                  60% { transform: translateX(-60px) rotate(8deg); opacity: 1; }
+                  85% { opacity: 0; }
+                  100% { transform: translateX(-60px) rotate(8deg); opacity: 0; }
+                }
+              `}</style>
+              <div
+                className="grid h-20 w-20 place-items-center rounded-full bg-black/55 text-white shadow-xl backdrop-blur-sm"
+                style={{
+                  animation: "stl-swipe 1.6s ease-in-out 2",
+                }}
+              >
+                <Hand className="h-10 w-10" />
+              </div>
+            </div>
+          )}
         </div>
+
 
         <div className="mt-8 flex items-center justify-center gap-2">
           {all.map((_, i) => (
