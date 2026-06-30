@@ -128,7 +128,7 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <div ref={carouselRef} className="relative mt-14">
+        <div className="relative mt-14">
           <button
             onClick={() => go(-1)}
             aria-label="Anterior"
