@@ -21,8 +21,9 @@ export function Classes() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
+            <SectionOrnament align="center" />
             <span
-              className="text-xs font-semibold uppercase tracking-[0.22em]"
+              className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.22em]"
               style={{ color: "var(--gold)" }}
             >
               Nossas Turmas
