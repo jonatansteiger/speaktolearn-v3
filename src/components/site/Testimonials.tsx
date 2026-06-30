@@ -187,13 +187,13 @@ function LeadImage() {
     <div className="flex flex-col items-center gap-5">
       <figure
         className="relative w-full overflow-hidden rounded-[28px] border-[6px] border-gold bg-white shadow-[0_12px_40px_-12px_rgba(198,162,75,0.35)]"
-        style={{ aspectRatio: "16/10" }}
+        style={{ aspectRatio: "4/5" }}
       >
         <img
           src={testimonialLead.url}
           alt="Não é o que a gente fala sobre a Speak To Learn, e sim o que os nossos alunos dizem a respeito!"
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
         <div className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-white/20" />
       </figure>
