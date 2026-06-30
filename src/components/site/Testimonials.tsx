@@ -9,6 +9,7 @@ type Item = TextItem;
 
 const all: Item[] = [
   {
+    kind: "text",
     text:
       "O curso Intensivo foi sensacional!\nEm 2 meses conseguimos aprender uma quantidade enorme de expressões, palavras novas, melhoramos a fala e a escuta, melhoramos a leitura e a habilidade de interpretar as histórias do livro que estávamos usando, e também entender oque funciona e oque não funciona na prática em uma conversa.\nE tudo isso pelo método natural, oque com certeza foi oque fez com que nosso aprendizado fosse tão proveitoso em pouco tempo. Aprendemos os significados das palavras como um nativo realmente aprende, sem traduções.",
     time: "16:06",
