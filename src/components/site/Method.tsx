@@ -2,10 +2,10 @@ import { Ear, MessagesSquare, Users, LineChart } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const steps = [
-  { n: "1", icon: Ear, title: "Ouvir", text: "Desenvolva sua escuta com contexto real,\u00a0com estruturas, ritmos e vocabulário desde o primeiro encontro." },
-  { n: "2", icon: MessagesSquare, title: "Imitar", text: "Repetição guiada, pronúncia modelada e segurança para se arriscar." },
-  { n: "3", icon: Users, title: "Praticar", text: "A turma vira laboratório de conversação com troca constante e contextual." },
-  { n: "4", icon: LineChart, title: "Comunicar", text: "Falar com naturalidade em situações reais — não apenas acertar exercícios." },
+  { n: "1", icon: Ear, title: "Ouvir", text: "Você começa desenvolvendo a escuta dentro de contextos reais, entendendo palavras, expressões e estruturas como elas aparecem no inglês do dia a dia." },
+  { n: "2", icon: MessagesSquare, title: "Imitar", text: "Com orientação do professor, você treina pronúncia, ritmo e entonação para ganhar segurança antes de falar sozinho." },
+  { n: "3", icon: Users, title: "Praticar", text: "A aula se transforma em um ambiente de prática: você participa, responde, troca ideias e usa o inglês de forma ativa." },
+  { n: "4", icon: LineChart, title: "Comunicar", text: "O objetivo final não é apenas acertar exercícios. É conseguir se expressar com mais naturalidade em situações reais." },
 ];
 
 export function Method() {

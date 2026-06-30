@@ -60,13 +60,11 @@ export function Classes() {
               title: "O Diferencial: Consistência",
               text: (
                 <>
-                  Aprender um idioma é um hábito. A frequência regular cria{" "}
-                  <strong className="text-white">memória de longo prazo</strong> e permite que cada conteúdo
-                  seja absorvido com profundidade.
+                  Aprender inglês exige contato frequente com o idioma. A rotina semanal ajuda o aluno a absorver o conteúdo com profundidade e transformar o inglês em hábito.
                 </>
               ),
               quote:
-                '"O caminho mais sólido até a fluência: passo a passo, semana após semana, sem atalhos."',
+                "Indicado para: alunos que querem evoluir com segurança, sem pressa e sem sobrecarga.",
             }}
           />
 
@@ -97,7 +95,7 @@ export function Classes() {
                 </>
               ),
               quote:
-                '"Sexta-feira chegou? A nossa aula será inteiramente focada no debate do tema escolhido pela turma, aplicando tudo o que foi estudado na prática."',
+                "Indicado para: alunos que querem acelerar a evolução e conseguem manter uma rotina diária de aulas.",
             }}
           />
 
@@ -128,7 +126,7 @@ export function Classes() {
                 </>
               ),
               quote:
-                '"Consulte a nossa equipe para solicitar a ementa com a lista de livros deste semestre."',
+                "Indicado para: alunos avançados que querem refinar o inglês e ganhar profundidade na comunicação.",
             }}
           />
 
@@ -158,7 +156,7 @@ export function Classes() {
                 </>
               ),
               quote:
-                '"O inglês como segunda língua natural, aprendido com a mesma alegria de brincar."',
+                "Indicado para: crianças que nunca tiveram contato com o inglês ou que precisam desenvolver contato frequente com o inglês de forma leve.",
             }}
           />
         </div>
