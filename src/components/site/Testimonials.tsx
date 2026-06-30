@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
@@ -55,30 +55,26 @@ const all: Item[] = [
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
-  const [perView, setPerView] = useState(1);
+  const total = all.length;
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
 
-  useEffect(() => {
-    const onResize = () => {
-      const w = window.innerWidth;
-      setPerView(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
-    };
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
+  const go = (dir: -1 | 1) => setIndex((i) => (i + dir + total) % total);
 
-  const pages = Math.max(1, all.length - perView + 1);
-
-  useEffect(() => {
-    if (index > pages - 1) setIndex(0);
-  }, [pages, index]);
-
-  useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % pages), 7000);
-    return () => clearInterval(id);
-  }, [pages]);
-
-  const go = (dir: -1 | 1) => setIndex((i) => (i + dir + pages) % pages);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+  const onTouchEnd = () => {
+    const dx = touchDeltaX.current;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+  };
 
   return (
     <section id="depoimentos" className="py-20 sm:py-24">
@@ -107,14 +103,21 @@ export function Testimonials() {
             <ChevronRight size={18} />
           </button>
 
-          <div className="overflow-hidden">
+          <div
+            className="overflow-hidden"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             <div
-              className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ transform: `translateX(calc(${index} * -${100 / perView}%))` }}
+              className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{ transform: `translateX(-${index * 100}%)` }}
             >
               {all.map((t, idx) => (
-                <div key={idx} className="shrink-0 px-3" style={{ width: `${100 / perView}%` }}>
-                  <FeedbackCard item={t} />
+                <div key={idx} className="w-full shrink-0 px-3">
+                  <div className="mx-auto w-full max-w-[420px]">
+                    <FeedbackCard item={t} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -122,7 +125,7 @@ export function Testimonials() {
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-2">
-          {Array.from({ length: pages }).map((_, i) => (
+          {all.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
@@ -142,28 +145,29 @@ export function Testimonials() {
 }
 
 function FeedbackCard({ item }: { item: Item }) {
-  // beige card with large repeating "feedback" lettering and a WhatsApp green bubble
   return (
     <article
-      className="relative h-[460px] overflow-hidden rounded-[28px] border border-border"
-      style={{ background: "var(--cream)" }}
+      className="relative overflow-hidden rounded-[28px] border border-border"
+      style={{
+        background: "var(--cream)",
+        height: "clamp(440px, 62vh, 540px)",
+      }}
     >
-      {/* repeated 'feedback' lettering */}
+      {/* repeated 'feedback' lettering — fills the whole card height */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 flex select-none flex-col font-serif italic"
         style={{
           color: "color-mix(in oklab, white 55%, var(--cream))",
-          fontSize: "clamp(44px, 8vw, 64px)",
+          fontSize: "clamp(40px, 12vw, 60px)",
           lineHeight: 0.95,
           letterSpacing: "-0.02em",
         }}
       >
-        {Array.from({ length: 8 }).map((_, i) => (
+        {Array.from({ length: 20 }).map((_, i) => (
           <span key={i} className="px-5">feedback</span>
         ))}
       </div>
-
 
       {/* WhatsApp message bubble */}
       <div className="absolute inset-0 flex items-center justify-center p-6">
@@ -171,7 +175,6 @@ function FeedbackCard({ item }: { item: Item }) {
           className="relative max-w-[88%] rounded-[10px] px-3.5 py-2.5 text-[12.5px] leading-[1.45] text-[#111b21] shadow-[0_1px_2px_rgba(11,20,26,0.13),0_2px_5px_rgba(11,20,26,0.07)]"
           style={{ background: "#d9fdd3" }}
         >
-          {/* tail */}
           <span
             aria-hidden
             className="absolute -left-1.5 top-0 h-3 w-3"
