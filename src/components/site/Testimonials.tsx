@@ -120,18 +120,33 @@ export function Testimonials() {
   useEffect(() => {
     const el = carouselRef.current;
     if (!el) return;
-    let timer: ReturnType<typeof setTimeout> | null = null;
-    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const HINT_MS = 1800;
+    let shown = 0;
+
+    const playHint = () => {
+      if (interactedRef.current || shown >= 2) return;
+      setShowHint(true);
+      shown += 1;
+      timers.push(
+        setTimeout(() => {
+          setShowHint(false);
+          if (shown < 2 && !interactedRef.current) {
+            // second appearance after 10s of inactivity
+            timers.push(setTimeout(playHint, 10000));
+          }
+        }, HINT_MS),
+      );
+    };
+
+    let started = false;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting && !interactedRef.current && !timer) {
-            timer = setTimeout(() => {
-              if (interactedRef.current) return;
-              setShowHint(true);
-              // animation runs twice (~1.6s each) = 3.2s, then hide
-              hideTimer = setTimeout(() => setShowHint(false), 3400);
-            }, 10000);
+          if (e.isIntersecting && !started) {
+            started = true;
+            // first appearance 3s after the testimonial enters the middle of the screen
+            timers.push(setTimeout(playHint, 3000));
           }
         });
       },
@@ -140,10 +155,13 @@ export function Testimonials() {
     io.observe(el);
     return () => {
       io.disconnect();
-      if (timer) clearTimeout(timer);
-      if (hideTimer) clearTimeout(hideTimer);
+      timers.forEach(clearTimeout);
     };
   }, []);
+
+  // Hint only valid while on the first testimonial
+  const hintVisible = showHint && index === 0;
+
 
 
   return (
