@@ -163,8 +163,6 @@ export function Testimonials() {
               ))}
             </div>
           </div>
-
-          </div>
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-2">
