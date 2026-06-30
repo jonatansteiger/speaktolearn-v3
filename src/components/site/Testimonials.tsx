@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, Hand } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
 import testimonialLead from "@/assets/testimonial-lead.png.asset.json";
