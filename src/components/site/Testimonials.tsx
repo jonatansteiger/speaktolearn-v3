@@ -220,31 +220,39 @@ export function Testimonials() {
             </div>
           </div>
 
-          {showHint && (
+          {hintVisible && (
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
             >
               <style>{`
                 @keyframes stl-swipe {
-                  0% { transform: translateX(40px) rotate(-8deg); opacity: 0; }
-                  15% { opacity: 1; }
-                  60% { transform: translateX(-60px) rotate(8deg); opacity: 1; }
-                  85% { opacity: 0; }
-                  100% { transform: translateX(-60px) rotate(8deg); opacity: 0; }
+                  0% { transform: translateX(60px); opacity: 0; }
+                  20% { opacity: 0.75; }
+                  80% { transform: translateX(-70px); opacity: 0.75; }
+                  100% { transform: translateX(-70px); opacity: 0; }
                 }
               `}</style>
-              <div
-                className="grid h-20 w-20 place-items-center rounded-full bg-black/55 text-white shadow-xl backdrop-blur-sm"
-                style={{
-                  animation: "stl-swipe 1.6s ease-in-out 2",
-                }}
+              <svg
+                viewBox="0 0 64 64"
+                className="h-20 w-20 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)]"
+                style={{ animation: "stl-swipe 1.6s ease-in-out 1 both", opacity: 0.75 }}
+                fill="none"
+                stroke="#1C1A17"
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <Hand className="h-10 w-10" />
-              </div>
+                {/* curved arrow */}
+                <path d="M30 12 C 20 12, 12 18, 10 24" />
+                <path d="M10 24 L 14 20 M10 24 L 14 28" />
+                {/* hand pointing up-left */}
+                <path d="M22 30 L 22 44 C 22 52, 28 56, 34 56 L 42 56 C 48 56, 50 52, 50 46 L 50 38 C 50 36, 48 35, 46 36 L 46 34 C 46 32, 44 31, 42 32 L 42 31 C 42 29, 40 28, 38 29 L 38 22 C 38 19.8, 36.2 18, 34 18 C 31.8 18, 30 19.8, 30 22 L 30 38 L 26 34 C 24 32, 21 33, 22 36 Z" />
+              </svg>
             </div>
           )}
         </div>
+
 
 
         <div className="mt-8 flex items-center justify-center gap-2">
