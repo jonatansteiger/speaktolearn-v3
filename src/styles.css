@@ -215,7 +215,22 @@
 }
 
 @utility mark-text {
-  background: linear-gradient(180deg, transparent 8%, color-mix(in oklab, var(--gold) 35%, transparent) 8%, color-mix(in oklab, var(--gold) 35%, transparent) 88%, transparent 88%);
+  position: relative;
+  display: inline-block;
   padding-inline: 0.15em;
-  margin-inline: -0.15em;
+  margin-inline: -0.05em;
+  background-image:
+    linear-gradient(95deg,
+      transparent 0.5%,
+      rgba(255, 230, 0, 0.85) 2%,
+      rgba(255, 224, 0, 0.95) 12%,
+      rgba(255, 235, 40, 0.78) 35%,
+      rgba(255, 224, 0, 0.95) 60%,
+      rgba(255, 230, 0, 0.9) 88%,
+      transparent 99%);
+  background-repeat: no-repeat;
+  background-size: 100% 70%;
+  background-position: 0 78%;
+  transform: rotate(-1deg);
+  transform-origin: left center;
 }
