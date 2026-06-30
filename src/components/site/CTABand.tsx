@@ -22,11 +22,11 @@ export function CTABand() {
             <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
               <div>
                 <h2 className="text-balance font-serif text-3xl leading-[1.1] sm:text-4xl" style={{ color: "var(--cream)" }}>
-                  Seu próximo nível começa{" "}
+                  Seu verdadeiro inglês começa{" "}
                   <span style={{ color: "var(--gold)" }}>agora.</span>
                 </h2>
                 <p className="mt-4 max-w-md text-sm text-white/70">
-                  Fale com um de nossos consultores e descubra o plano ideal para você ou sua empresa.
+                  Fale com um de nossos consultores e descubra o plano ideal para você.
                 </p>
               </div>
 
