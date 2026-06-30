@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
-import testimonialCover from "@/assets/testimonial-cover.png.asset.json";
+import testimonialLead from "@/assets/testimonial-lead.png.asset.json";
 
 type TextItem = { kind: "text"; text: string; time: string };
 type ImageItem = { kind: "image"; src: string; alt: string };
