@@ -85,9 +85,8 @@ export function Testimonials() {
             title="Alunos que transformam seus resultados"
             align="center"
           />
-          <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Aprender inglês não precisa ser uma experiência travada, solitária ou frustrante.
-            <br className="hidden sm:block" />
+          <p className="mx-auto mt-5 max-w-2xl whitespace-pre-line text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Aprender inglês não precisa ser uma experiência travada, solitária ou frustrante.{"\n\n\n\n"}
             Veja o que os alunos dizem sobre a evolução com o Método Natural da Speak To Learn.
           </p>
         </Reveal>
