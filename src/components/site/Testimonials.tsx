@@ -88,22 +88,12 @@ export function Testimonials() {
   const total = all.length;
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [showHint, setShowHint] = useState(false);
-  const interactedRef = useRef(false);
-
-  const markInteracted = () => {
-    interactedRef.current = true;
-    setShowHint(false);
-  };
 
   const go = (dir: -1 | 1) => {
-    markInteracted();
     setIndex((i) => (i + dir + total) % total);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
-    markInteracted();
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
   };
@@ -117,53 +107,6 @@ export function Testimonials() {
     touchStartX.current = null;
     touchDeltaX.current = 0;
   };
-
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    const HINT_MS = 1800;
-    let shown = 0;
-
-    const playHint = () => {
-      if (interactedRef.current || shown >= 2) return;
-      setShowHint(true);
-      shown += 1;
-      timers.push(
-        setTimeout(() => {
-          setShowHint(false);
-          if (shown < 2 && !interactedRef.current) {
-            // second appearance after 10s of inactivity
-            timers.push(setTimeout(playHint, 10000));
-          }
-        }, HINT_MS),
-      );
-    };
-
-    let started = false;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && !started) {
-            started = true;
-            // first appearance 3s after the testimonial enters the middle of the screen
-            timers.push(setTimeout(playHint, 3000));
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      timers.forEach(clearTimeout);
-    };
-  }, []);
-
-  // Hint only valid while on the first testimonial
-  const hintVisible = showHint && index === 0;
-
-
 
   return (
     <section id="depoimentos" className="py-20 sm:py-24">
