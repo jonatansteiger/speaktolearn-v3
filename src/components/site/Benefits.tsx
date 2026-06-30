@@ -3,12 +3,12 @@ import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
 
 const items = [
-  { icon: Ear, title: "Inglês real e contextual", text: "Aprenda o inglês que você realmente usa." },
-  { icon: Headphones, title: "Imersão guiada", text: "Conteúdo exclusivo e aulas ao vivo que conectam teoria e prática." },
-  { icon: BookOpen, title: "Vocabulário ativo", text: "Expanda seu vocabulário com expressões úteis e aplicáveis." },
-  { icon: UserRound, title: "Acompanhamento dentro e fora de aula", text: "Tenha acompanhamento dos professores a hora que precisar." },
-  { icon: MessageCircle, title: "Foco na conversação real", text: "Aulas pensadas para você falar inglês com naturalidade desde o primeiro dia." },
-  { icon: RefreshCw, title: "Prática constante", text: "Mais contato com o inglês, mais confiança para se comunicar." },
+  { icon: Ear, title: "Inglês real e contextual", text: "Você aprende palavras, frases e expressões dentro de situações reais, não de forma isolada." },
+  { icon: Headphones, title: "Imersão guiada", text: "As aulas ao vivo conduzem o aluno passo a passo, conectando teoria, prática e conversação." },
+  { icon: BookOpen, title: "Vocabulário ativo", text: "Você não apenas conhece novas palavras. Você aprende a usar essas palavras em frases, respostas e conversas." },
+  { icon: UserRound, title: "Acompanhamento próximo", text: "Os professores acompanham sua evolução e orientam seus próximos passos dentro da jornada de aprendizado." },
+  { icon: MessageCircle, title: "Foco na conversação real", text: "Mesmo nos primeiros níveis, o aluno é estimulado a falar, responder e participar ativamente." },
+  { icon: RefreshCw, title: "Prática constante", text: "Quanto mais contato com o inglês, mais natural se torna entender, responder e se comunicar." },
 ];
 
 export function Benefits() {
