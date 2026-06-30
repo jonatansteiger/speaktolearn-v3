@@ -168,42 +168,6 @@ export function Classes() {
   );
 }
 
-function Th({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <th className={`px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] ${className}`}>
-      {children}
-    </th>
-  );
-}
-
-function Row({
-  label,
-  cells,
-  highlight,
-  last,
-}: {
-  label: string;
-  cells: string[];
-  highlight?: number;
-  last?: boolean;
-}) {
-  return (
-    <tr className={last ? "" : "border-b border-white/8"}>
-      <td className="px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
-        {label}
-      </td>
-      {cells.map((c, i) => (
-        <td
-          key={i}
-          className="px-5 py-4 align-top text-sm leading-relaxed"
-          style={highlight === i ? { color: "var(--gold)", fontWeight: 600 } : undefined}
-        >
-          {c}
-        </td>
-      ))}
-    </tr>
-  );
-}
 
 type Item = { icon: typeof Clock; label: string; value: string };
 type Highlight = {
