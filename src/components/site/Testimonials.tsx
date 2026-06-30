@@ -68,6 +68,24 @@ const all: Item[] = [
       "Minha experiência tem sido excelente, superando minhas expectativas desde o início.\nFico muito feliz em perceber minha evolução em tão pouco tempo.\nA professora Marya é extremamente atenciosa, e estou realmente encantada com a turma.",
     time: "15:48",
   },
+  {
+    kind: "text",
+    text:
+      "Olá!!!! Tudo bem ☺️\nEstou gostando das aulas.\nA professora Marya é muito atenciosa e tem sempre paciência em nos explicar tudo, quantas vezes for necessário.",
+    time: "15:45",
+  },
+  {
+    kind: "text",
+    text:
+      "Em relação as aulas estou gostando muito!\nO professor é muito bom e a aula rende bem, e o método é muito eficaz!\nEm pouco tempo consegui desenferrujar meu inglês.",
+    time: "14:20",
+  },
+  {
+    kind: "text",
+    text:
+      "Está indo tudo bem, as aulas são muito proveitosas!\nConsigo notar claramente o vocabulário sendo aumentado e conversar em inglês começa a ser bem mais tranquilo!",
+    time: "16:02",
+  },
 ];
 
 export function Testimonials() {
