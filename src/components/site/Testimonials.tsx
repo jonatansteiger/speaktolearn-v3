@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
 import testimonialLead from "@/assets/testimonial-lead.png.asset.json";
@@ -87,22 +88,12 @@ export function Testimonials() {
   const total = all.length;
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [showHint, setShowHint] = useState(false);
-  const interactedRef = useRef(false);
-
-  const markInteracted = () => {
-    interactedRef.current = true;
-    setShowHint(false);
-  };
 
   const go = (dir: -1 | 1) => {
-    markInteracted();
     setIndex((i) => (i + dir + total) % total);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
-    markInteracted();
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
   };
@@ -116,53 +107,6 @@ export function Testimonials() {
     touchStartX.current = null;
     touchDeltaX.current = 0;
   };
-
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    const HINT_MS = 1800;
-    let shown = 0;
-
-    const playHint = () => {
-      if (interactedRef.current || shown >= 2) return;
-      setShowHint(true);
-      shown += 1;
-      timers.push(
-        setTimeout(() => {
-          setShowHint(false);
-          if (shown < 2 && !interactedRef.current) {
-            // second appearance after 10s of inactivity
-            timers.push(setTimeout(playHint, 10000));
-          }
-        }, HINT_MS),
-      );
-    };
-
-    let started = false;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && !started) {
-            started = true;
-            // first appearance 3s after the testimonial enters the middle of the screen
-            timers.push(setTimeout(playHint, 3000));
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      timers.forEach(clearTimeout);
-    };
-  }, []);
-
-  // Hint only valid while on the first testimonial
-  const hintVisible = showHint && index === 0;
-
-
 
   return (
     <section id="depoimentos" className="py-20 sm:py-24">
@@ -184,7 +128,7 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <div ref={carouselRef} className="relative mt-14">
+        <div className="relative mt-14">
           <button
             onClick={() => go(-1)}
             aria-label="Anterior"
@@ -219,41 +163,7 @@ export function Testimonials() {
               ))}
             </div>
           </div>
-
-          {hintVisible && (
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
-            >
-              <style>{`
-                @keyframes stl-swipe {
-                  0% { transform: translateX(60px); opacity: 0; }
-                  20% { opacity: 0.75; }
-                  80% { transform: translateX(-70px); opacity: 0.75; }
-                  100% { transform: translateX(-70px); opacity: 0; }
-                }
-              `}</style>
-              <svg
-                viewBox="0 0 64 64"
-                className="h-20 w-20 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)]"
-                style={{ animation: "stl-swipe 1.6s ease-in-out 1 both", opacity: 0.75 }}
-                fill="none"
-                stroke="#1C1A17"
-                strokeWidth={3}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {/* curved arrow */}
-                <path d="M30 12 C 20 12, 12 18, 10 24" />
-                <path d="M10 24 L 14 20 M10 24 L 14 28" />
-                {/* hand pointing up-left */}
-                <path d="M22 30 L 22 44 C 22 52, 28 56, 34 56 L 42 56 C 48 56, 50 52, 50 46 L 50 38 C 50 36, 48 35, 46 36 L 46 34 C 46 32, 44 31, 42 32 L 42 31 C 42 29, 40 28, 38 29 L 38 22 C 38 19.8, 36.2 18, 34 18 C 31.8 18, 30 19.8, 30 22 L 30 38 L 26 34 C 24 32, 21 33, 22 36 Z" />
-              </svg>
-            </div>
-          )}
         </div>
-
-
 
         <div className="mt-8 flex items-center justify-center gap-2">
           {all.map((_, i) => (
