@@ -1,12 +1,3 @@
-import { MessageCircle, Mail, MapPin, Instagram, Linkedin, Facebook } from "lucide-react";
-import { Logo } from "./Logo";
-
-const cols = [
-  { title: "Navegação", links: ["O Método", "Cursos", "Para Empresas", "Depoimentos", "FAQ"] },
-  { title: "Cursos", links: ["Inglês Geral", "Inglês para Negócios", "Conversação", "Viagens", "Preparatórios"] },
-  { title: "Para Empresas", links: ["Soluções", "Benefícios", "Cases", "Fale com um consultor"] },
-];
-
 export function Footer() {
   return (
     <footer style={{ background: "var(--blue-deep)", color: "color-mix(in oklab, var(--cream) 86%, transparent)" }}>
