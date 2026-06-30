@@ -1,8 +1,7 @@
-import { ClipboardCheck, Layers, Users } from "lucide-react";
+import { Layers, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const items = [
-  { icon: ClipboardCheck, text: "Avaliação gratuita e personalizada" },
   { icon: Layers, text: "Planos flexíveis e acessíveis" },
   { icon: Users, text: "Para todos os níveis e necessidades" },
 ];
