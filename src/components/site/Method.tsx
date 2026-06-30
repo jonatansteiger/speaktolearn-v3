@@ -13,7 +13,7 @@ export function Method() {
     <section id="metodo" className="py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <SectionHeader eyebrow="Nosso Método" title="Um caminho natural para a fluência" align="center" />
+          <SectionHeader eyebrow="NOSSO MÉTODO" title="Um caminho natural para a fluência: o método natural" align="center" />
         </Reveal>
 
         <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
