@@ -213,3 +213,9 @@
 @utility live-dot {
   animation: live-pulse 1.6s ease-in-out infinite;
 }
+
+@utility mark-text {
+  background: linear-gradient(180deg, transparent 8%, color-mix(in oklab, var(--gold) 35%, transparent) 8%, color-mix(in oklab, var(--gold) 35%, transparent) 88%, transparent 88%);
+  padding-inline: 0.15em;
+  margin-inline: -0.15em;
+}
