@@ -6,7 +6,7 @@ import { Hero } from "@/components/site/Hero";
 const Method = lazy(() => import("@/components/site/Method").then(m => ({ default: m.Method })));
 const Classes = lazy(() => import("@/components/site/Classes").then(m => ({ default: m.Classes })));
 const Benefits = lazy(() => import("@/components/site/Benefits").then(m => ({ default: m.Benefits })));
-const Teachers = lazy(() => import("@/components/site/Teachers").then(m => ({ default: m.Teachers })));
+
 const Testimonials = lazy(() => import("@/components/site/Testimonials").then(m => ({ default: m.Testimonials })));
 const CTABand = lazy(() => import("@/components/site/CTABand").then(m => ({ default: m.CTABand })));
 const FAQ = lazy(() => import("@/components/site/FAQ").then(m => ({ default: m.FAQ })));
@@ -33,7 +33,7 @@ function Index() {
         <Method />
         <Classes />
         <Benefits />
-        <Teachers />
+        
         <Testimonials />
         <CTABand />
         <FAQ />
