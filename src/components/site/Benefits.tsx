@@ -1,4 +1,4 @@
-import { Ear, Headphones, BookOpen, UserRound, Target, RefreshCw } from "lucide-react";
+import { Ear, Headphones, BookOpen, UserRound, MessageCircle, RefreshCw } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
 
@@ -7,7 +7,7 @@ const items = [
   { icon: Headphones, title: "Imersão guiada", text: "Conteúdo exclusivo e aulas ao vivo que conectam teoria e prática." },
   { icon: BookOpen, title: "Vocabulário ativo", text: "Expanda seu vocabulário com expressões úteis e aplicáveis." },
   { icon: UserRound, title: "Acompanhamento dentro e fora de aula", text: "Tenha acompanhamento dos professores a hora que precisar." },
-  { icon: Target, title: "Foco em objetivos", text: "Do dia a dia ao corporativo, você aprende o que realmente precisa." },
+  { icon: MessageCircle, title: "Foco na conversação real", text: "Aulas pensadas para você falar inglês com naturalidade desde o primeiro dia." },
   { icon: RefreshCw, title: "Prática constante", text: "Mais contato com o inglês, mais confiança para se comunicar." },
 ];
 
