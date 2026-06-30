@@ -87,10 +87,22 @@ export function Testimonials() {
   const total = all.length;
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [showHint, setShowHint] = useState(false);
+  const interactedRef = useRef(false);
 
-  const go = (dir: -1 | 1) => setIndex((i) => (i + dir + total) % total);
+  const markInteracted = () => {
+    interactedRef.current = true;
+    setShowHint(false);
+  };
+
+  const go = (dir: -1 | 1) => {
+    markInteracted();
+    setIndex((i) => (i + dir + total) % total);
+  };
 
   const onTouchStart = (e: React.TouchEvent) => {
+    markInteracted();
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
   };
@@ -100,10 +112,39 @@ export function Testimonials() {
   };
   const onTouchEnd = () => {
     const dx = touchDeltaX.current;
-    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    if (Math.abs(dx) > 50) setIndex((i) => (i + (dx < 0 ? 1 : -1) + total) % total);
     touchStartX.current = null;
     touchDeltaX.current = 0;
   };
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let hideTimer: ReturnType<typeof setTimeout> | null = null;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !interactedRef.current && !timer) {
+            timer = setTimeout(() => {
+              if (interactedRef.current) return;
+              setShowHint(true);
+              // animation runs twice (~1.6s each) = 3.2s, then hide
+              hideTimer = setTimeout(() => setShowHint(false), 3400);
+            }, 10000);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      if (timer) clearTimeout(timer);
+      if (hideTimer) clearTimeout(hideTimer);
+    };
+  }, []);
+
 
   return (
     <section id="depoimentos" className="py-20 sm:py-24">
