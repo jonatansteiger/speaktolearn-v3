@@ -40,9 +40,7 @@ export function Hero() {
               <img src={usaFlagAsset.url} alt="Bandeira dos EUA" className="h-4 w-4 rounded-full object-cover" />
             </span>
             <h1 className="mt-5 text-balance text-[40px] leading-[1.05] sm:text-5xl lg:text-[58px]">
-              Aprenda inglês de forma <span className="italic" style={{ color: "var(--green)" }}>natural</span>,
-              <br />
-              com um <span style={{ color: "var(--gold)" }}>método único</span> que acelera sua evolução.
+              Do zero à conversação: aprenda inglês com contexto, prática e método <span className="italic" style={{ color: "var(--green)" }}>natural</span>.
             </h1>
 
 
