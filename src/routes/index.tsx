@@ -1,15 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { Method } from "@/components/site/Method";
-import { Classes } from "@/components/site/Classes";
 
-import { Benefits } from "@/components/site/Benefits";
-import { Teachers } from "@/components/site/Teachers";
-import { Testimonials } from "@/components/site/Testimonials";
-import { CTABand } from "@/components/site/CTABand";
-import { FAQ } from "@/components/site/FAQ";
-import { Footer } from "@/components/site/Footer";
+const Method = lazy(() => import("@/components/site/Method").then(m => ({ default: m.Method })));
+const Classes = lazy(() => import("@/components/site/Classes").then(m => ({ default: m.Classes })));
+const Benefits = lazy(() => import("@/components/site/Benefits").then(m => ({ default: m.Benefits })));
+const Teachers = lazy(() => import("@/components/site/Teachers").then(m => ({ default: m.Teachers })));
+const Testimonials = lazy(() => import("@/components/site/Testimonials").then(m => ({ default: m.Testimonials })));
+const CTABand = lazy(() => import("@/components/site/CTABand").then(m => ({ default: m.CTABand })));
+const FAQ = lazy(() => import("@/components/site/FAQ").then(m => ({ default: m.FAQ })));
+const Footer = lazy(() => import("@/components/site/Footer").then(m => ({ default: m.Footer })));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,15 +29,16 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
-      <Method />
-      <Classes />
-
-      <Benefits />
-      <Teachers />
-      <Testimonials />
-      <CTABand />
-      <FAQ />
-      <Footer />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Method />
+        <Classes />
+        <Benefits />
+        <Teachers />
+        <Testimonials />
+        <CTABand />
+        <FAQ />
+        <Footer />
+      </Suspense>
     </main>
   );
 }
