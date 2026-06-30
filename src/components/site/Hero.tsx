@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Mic, Video, MoreHorizontal, PhoneOff, Sparkles, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 import videoCall from "@/assets/video-call.jpg";
-import usaFlagAsset from "@/assets/usa-flag.gif.asset.json";
+import usaFlagAsset from "@/assets/usa-flag.png.asset.json";
 
 const differentiators = [
   { icon: Sparkles, label: "Método natural e estruturado" },
