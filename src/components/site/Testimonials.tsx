@@ -1,19 +1,13 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
-import testimonialCover from "@/assets/testimonial-cover.png.asset.json";
+import testimonialLead from "@/assets/testimonial-lead.png.asset.json";
 
 type TextItem = { kind: "text"; text: string; time: string };
-type ImageItem = { kind: "image"; src: string; alt: string };
-type Item = TextItem | ImageItem;
+type Item = TextItem;
 
 const all: Item[] = [
-  {
-    kind: "image",
-    src: testimonialCover.url,
-    alt: "Não é o que a gente fala sobre a Speak To Learn, e sim o que os nossos alunos dizem a respeito!",
-  },
   {
     kind: "text",
     text:
@@ -125,6 +119,12 @@ export function Testimonials() {
           </p>
         </Reveal>
 
+        <Reveal className="mt-12">
+          <div className="mx-auto max-w-3xl">
+            <LeadImage />
+          </div>
+        </Reveal>
+
         <div className="relative mt-14">
           <button
             onClick={() => go(-1)}
@@ -154,11 +154,7 @@ export function Testimonials() {
               {all.map((t, idx) => (
                 <div key={idx} className="w-full shrink-0 px-3">
                   <div className="mx-auto w-full max-w-[420px]">
-                    {t.kind === "image" ? (
-                      <CoverCard src={t.src} alt={t.alt} />
-                    ) : (
-                      <FeedbackCard text={t.text} time={t.time} />
-                    )}
+                    <FeedbackCard text={t.text} time={t.time} />
                   </div>
                 </div>
               ))}
@@ -186,20 +182,31 @@ export function Testimonials() {
   );
 }
 
-function CoverCard({ src, alt }: { src: string; alt: string }) {
+function LeadImage() {
   return (
-    <article
-      className="relative overflow-hidden rounded-[28px] border border-border bg-[#111b21]"
-      style={{ height: "clamp(440px, 62vh, 540px)" }}
-    >
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-    </article>
+    <div className="flex flex-col items-center gap-5">
+      <figure
+        className="relative w-full overflow-hidden rounded-[28px] border-[6px] border-gold bg-white shadow-[0_12px_40px_-12px_rgba(198,162,75,0.35)]"
+        style={{ aspectRatio: "16/10" }}
+      >
+        <img
+          src={testimonialLead.url}
+          alt="Não é o que a gente fala sobre a Speak To Learn, e sim o que os nossos alunos dizem a respeito!"
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 rounded-[22px] ring-1 ring-inset ring-white/20" />
+      </figure>
+
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-xs font-medium uppercase tracking-widest text-gold">
+          Feedbacks abaixo
+        </span>
+        <div className="grid h-12 w-12 place-items-center rounded-full border-2 border-gold bg-white shadow-[0_6px_18px_-6px_rgba(198,162,75,0.45)]">
+          <ChevronDown className="h-6 w-6 text-gold animate-bounce" />
+        </div>
+      </div>
+    </div>
   );
 }
 
