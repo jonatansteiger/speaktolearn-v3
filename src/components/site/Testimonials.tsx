@@ -213,12 +213,13 @@ function LeadImage() {
 function FeedbackCard({ text, time }: { text: string; time: string }) {
   return (
     <article
-      className="relative overflow-hidden rounded-[28px] border border-border"
+      className="relative overflow-hidden rounded-[28px] border-[3px] border-gold shadow-[0_12px_40px_-12px_rgba(198,162,75,0.35)]"
       style={{
         background: "var(--cream)",
         height: "clamp(440px, 62vh, 540px)",
       }}
     >
+
       {/* repeated 'feedback' lettering — fills the whole card height */}
       <div
         aria-hidden
