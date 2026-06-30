@@ -2,51 +2,68 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeader } from "./Method";
+import testimonialCover from "@/assets/testimonial-cover.png.asset.json";
 
-type Item = { text: string; time: string };
+type TextItem = { kind: "text"; text: string; time: string };
+type ImageItem = { kind: "image"; src: string; alt: string };
+type Item = TextItem | ImageItem;
 
 const all: Item[] = [
   {
+    kind: "image",
+    src: testimonialCover.url,
+    alt: "Não é o que a gente fala sobre a Speak To Learn, e sim o que os nossos alunos dizem a respeito!",
+  },
+  {
+    kind: "text",
     text:
       "O curso Intensivo foi sensacional!\nEm 2 meses conseguimos aprender uma quantidade enorme de expressões, palavras novas, melhoramos a fala e a escuta, melhoramos a leitura e a habilidade de interpretar as histórias do livro que estávamos usando, e também entender oque funciona e oque não funciona na prática em uma conversa.\nE tudo isso pelo método natural, oque com certeza foi oque fez com que nosso aprendizado fosse tão proveitoso em pouco tempo. Aprendemos os significados das palavras como um nativo realmente aprende, sem traduções.",
     time: "16:06",
   },
   {
+    kind: "text",
     text:
       "Estou gostando muito das aulas!\nCreio que são as melhores aulas de inglês que já tive.\nO método, as conversações, estão me ajudando muito!",
     time: "09:31",
   },
   {
+    kind: "text",
     text:
       "Gostaria de dar o meu feedback sobre o curso e dizer que achei muito legal e proveitoso.\nO uso do livro 'English by Nature Method' foi um ponto super positivo, pois ele ensina por níveis e sem tradução, tudo direto na língua que estávamos aprendendo, o inglês. Além disso, o ambiente e o compromisso de ter as aulas regularmente dão muito ânimo para estudar, ainda mais compartilhando a jornada com outras pessoas. Para completar, a professora, por morar atualmente nos EUA, conseguiu nos dar muitas dicas valiosas, já que ela mesma passou por esse processo de aprender inglês.",
     time: "08:20",
   },
   {
+    kind: "text",
     text:
       "Está sendo uma experiência muito legal!\nO professor e os colegas são excelentes.\nE o livro utilizado em aula é muito instrutivo.\nEu penso que é uma aula excelente para qualquer nível, desde quem sabe pouco até quem tem um inglês consolidado.",
     time: "10:12",
   },
   {
+    kind: "text",
     text:
       "Tanto as aulas do professor Marco, quanto da professora Nicole, têm sido muito boas para o meu inglês:\nÉ perceptível a mudança na minha pronúncia e uma facilidade maior em se expressar; e também pude ver a mesma evolução nos meus colegas de ambas as turmas.\nSão abordagens diferentes de cada professor, mas elas se complementaram muito bem para mim.",
     time: "18:42",
   },
   {
+    kind: "text",
     text:
       "As aulas são muito boas.\nO que mais está ajudando é o professor Pedro nos estimular a conversar.\nEu inclusive falei para o prof. que entrei na aula com o intuito de melhorar o inglês, colocar de uma forma mais prática.\nE o professor nos coloca para conversar e isso é muito bom!",
     time: "15:55",
   },
   {
+    kind: "text",
     text:
       "Oi, boa tarde!\nEu estou gostando muito das aulas, do professor e da turma! 😁",
     time: "09:41",
   },
   {
+    kind: "text",
     text:
       "É a primeira vez que estou acessando o inglês pelo Método Natural, que é proposto pela Speak To Learn. Tanto o método como o material são ótimos. A professora ministra as aulas com excelência e didática.\nEstou amando o curso!",
     time: "16:14",
   },
   {
+    kind: "text",
     text:
       "Minha experiência tem sido excelente, superando minhas expectativas desde o início.\nFico muito feliz em perceber minha evolução em tão pouco tempo.\nA professora Marya é extremamente atenciosa, e estou realmente encantada com a turma.",
     time: "15:48",
@@ -120,7 +137,11 @@ export function Testimonials() {
               {all.map((t, idx) => (
                 <div key={idx} className="w-full shrink-0 px-3">
                   <div className="mx-auto w-full max-w-[420px]">
-                    <FeedbackCard item={t} />
+                    {t.kind === "image" ? (
+                      <CoverCard src={t.src} alt={t.alt} />
+                    ) : (
+                      <FeedbackCard text={t.text} time={t.time} />
+                    )}
                   </div>
                 </div>
               ))}
@@ -148,7 +169,24 @@ export function Testimonials() {
   );
 }
 
-function FeedbackCard({ item }: { item: Item }) {
+function CoverCard({ src, alt }: { src: string; alt: string }) {
+  return (
+    <article
+      className="relative overflow-hidden rounded-[28px] border border-border bg-[#111b21]"
+      style={{ height: "clamp(440px, 62vh, 540px)" }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+    </article>
+  );
+}
+
+function FeedbackCard({ text, time }: { text: string; time: string }) {
   return (
     <article
       className="relative overflow-hidden rounded-[28px] border border-border"
@@ -187,9 +225,9 @@ function FeedbackCard({ item }: { item: Item }) {
               clipPath: "polygon(100% 0, 100% 100%, 0 0)",
             }}
           />
-          <p className="whitespace-pre-line">{item.text}</p>
+          <p className="whitespace-pre-line">{text}</p>
           <div className="mt-1 flex items-center justify-end gap-1 text-[10.5px] text-[#667781]">
-            <span>{item.time}</span>
+            <span>{time}</span>
             <svg width="14" height="10" viewBox="0 0 16 11" fill="none" aria-hidden>
               <path
                 d="M11.07.65 5.16 6.56 3.5 4.9 2.45 5.95l2.71 2.71L12.12 1.7zM15.02.65 9.11 6.56 7.93 5.4l-1.06 1.06 2.24 2.24L16.07 1.7z"
