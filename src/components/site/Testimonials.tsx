@@ -91,14 +91,14 @@ export function Testimonials() {
           <button
             onClick={() => go(-1)}
             aria-label="Anterior"
-            className="absolute -left-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-white shadow-[var(--shadow-soft)] transition-colors hover:bg-secondary sm:grid lg:-left-6"
+            className="absolute -left-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-white shadow-[var(--shadow-soft)] transition-colors hover:bg-secondary min-[641px]:grid lg:-left-6"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={() => go(1)}
             aria-label="Próximo"
-            className="absolute -right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-white shadow-[var(--shadow-soft)] transition-colors hover:bg-secondary sm:grid lg:-right-6"
+            className="absolute -right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-border bg-white shadow-[var(--shadow-soft)] transition-colors hover:bg-secondary min-[641px]:grid lg:-right-6"
           >
             <ChevronRight size={18} />
           </button>
