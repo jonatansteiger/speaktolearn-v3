@@ -6,7 +6,7 @@ const items = [
   { icon: Ear, title: "Inglês real e contextual", text: "Aprenda o inglês que você realmente usa." },
   { icon: Headphones, title: "Imersão guiada", text: "Conteúdo exclusivo e aulas ao vivo que conectam teoria e prática." },
   { icon: BookOpen, title: "Vocabulário ativo", text: "Expanda seu vocabulário com expressões úteis e aplicáveis." },
-  { icon: UserRound, title: "Personalizado", text: "Material e sugestões alinhados aos seus objetivos e ao seu momento." },
+  { icon: UserRound, title: "Acompanhamento dentro e fora de aula", text: "Tenha acompanhamento dos professores a hora que precisar." },
   { icon: Target, title: "Foco em objetivos", text: "Do dia a dia ao corporativo, você aprende o que realmente precisa." },
   { icon: RefreshCw, title: "Prática constante", text: "Mais contato com o inglês, mais confiança para se comunicar." },
 ];
