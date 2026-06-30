@@ -154,11 +154,7 @@ export function Testimonials() {
               {all.map((t, idx) => (
                 <div key={idx} className="w-full shrink-0 px-3">
                   <div className="mx-auto w-full max-w-[420px]">
-                    {t.kind === "image" ? (
-                      <CoverCard src={t.src} alt={t.alt} />
-                    ) : (
-                      <FeedbackCard text={t.text} time={t.time} />
-                    )}
+                    <FeedbackCard text={t.text} time={t.time} />
                   </div>
                 </div>
               ))}
