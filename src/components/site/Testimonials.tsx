@@ -151,19 +151,19 @@ function FeedbackCard({ item }: { item: Item }) {
       {/* repeated 'feedback' lettering */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex select-none flex-col justify-between py-6 font-serif italic"
+        className="pointer-events-none absolute inset-0 flex select-none flex-col font-serif italic"
         style={{
           color: "color-mix(in oklab, white 55%, var(--cream))",
-          fontSize: "clamp(48px, 9vw, 72px)",
+          fontSize: "clamp(44px, 8vw, 64px)",
           lineHeight: 0.95,
           letterSpacing: "-0.02em",
         }}
       >
-        <span className="px-4">feedback</span>
-        <span className="px-4 text-right">feedback</span>
-        <span className="px-4">feedback</span>
-        <span className="px-4 text-right">feedback</span>
+        {Array.from({ length: 8 }).map((_, i) => (
+          <span key={i} className="px-5">feedback</span>
+        ))}
       </div>
+
 
       {/* WhatsApp message bubble */}
       <div className="absolute inset-0 flex items-center justify-center p-6">
