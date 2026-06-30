@@ -31,7 +31,7 @@ export function Classes() {
               Encontre a turma ideal para o seu momento
             </h2>
             <p className="mt-4 text-base text-white/70">
-              Cada formato é desenhado para um objetivo específico — escolha aquele
+              Cada formato é desenhado for um objetivo específico — escolha aquele
               que combina com a sua rotina.
             </p>
           </div>
@@ -45,6 +45,9 @@ export function Classes() {
             title="Turma Gradual"
             description={
               <>
+                Para quem quer construir uma base sólida e evoluir com consistência.
+                <br />
+                <br />
                 Aulas <strong className="text-white">duas vezes por semana</strong>, no ritmo certo para
                 construir uma base consistente e chegar do <strong className="text-white">Básico ao Avançado</strong>{" "}
                 sem pressa.
@@ -75,6 +78,9 @@ export function Classes() {
             title="Turma Intensiva"
             description={
               <>
+                Para quem quer acelerar a evolução com o contato diário com o inglês.
+                <br />
+                <br />
                 Aulas todos os dias para resultados acelerados. Conclua{" "}
                 <strong className="text-white">1 Nível inteiro</strong> em menos da metade do tempo.
               </>
@@ -107,7 +113,8 @@ export function Classes() {
             description={
               <>
                 O inglês através das grandes ideias. A sala de aula transformada num{" "}
-                <strong className="text-white">clube de leitura avançado</strong>.
+                <strong className="text-white">clube de leitura avançado</strong>{" "}
+                através de literatura, debate e grandes ideias.
               </>
             }
             items={[
@@ -137,7 +144,10 @@ export function Classes() {
             title="Turmas Kids"
             description={
               <>
-                Adaptação lúdica ao idioma. Inglês para crianças com{" "}
+                Inglês para crianças com leveza, interação e aprendizado natural.
+                <br />
+                <br />
+                Adaptação lúdica ao idioma, com{" "}
                 <strong className="text-white">estímulos dinâmicos</strong> e progressão contínua.
               </>
             }
@@ -217,7 +227,7 @@ function TurmaCard({
             )}
           </h3>
 
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/75">{description}</p>
+          <div className="mt-4 max-w-md text-[15px] leading-relaxed text-white/75">{description}</div>
 
           <ul className="mt-7 space-y-3.5">
             {items.map((it) => (
