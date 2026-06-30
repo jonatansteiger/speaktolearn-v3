@@ -31,7 +31,7 @@ export function Classes() {
               Encontre a turma ideal para o seu momento
             </h2>
             <p className="mt-4 text-base text-white/70">
-              Cada formato é desenhado for um objetivo específico — escolha aquele
+              Cada formato é desenhado para um objetivo específico — escolha aquele
               que combina com a sua rotina.
             </p>
           </div>
