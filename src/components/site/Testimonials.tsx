@@ -201,7 +201,33 @@ export function Testimonials() {
               ))}
             </div>
           </div>
+
+          {showHint && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
+            >
+              <style>{`
+                @keyframes stl-swipe {
+                  0% { transform: translateX(40px) rotate(-8deg); opacity: 0; }
+                  15% { opacity: 1; }
+                  60% { transform: translateX(-60px) rotate(8deg); opacity: 1; }
+                  85% { opacity: 0; }
+                  100% { transform: translateX(-60px) rotate(8deg); opacity: 0; }
+                }
+              `}</style>
+              <div
+                className="grid h-20 w-20 place-items-center rounded-full bg-black/55 text-white shadow-xl backdrop-blur-sm"
+                style={{
+                  animation: "stl-swipe 1.6s ease-in-out 2",
+                }}
+              >
+                <Hand className="h-10 w-10" />
+              </div>
+            </div>
+          )}
         </div>
+
 
         <div className="mt-8 flex items-center justify-center gap-2">
           {all.map((_, i) => (
