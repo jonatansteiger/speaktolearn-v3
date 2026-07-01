@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Mic, Video, MoreHorizontal, PhoneOff, Sparkles, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
-import videoCall from "@/assets/video-call.jpg";
+import videoCallAsset from "@/assets/aula-speaktolearn.jpeg.asset.json";
 import usaFlagAsset from "@/assets/usa-flag.png.asset.json";
 
 const differentiators = [
@@ -90,7 +90,7 @@ function VideoCallCard() {
       >
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[22px]">
           <img
-            src={videoCall}
+            src={videoCallAsset.url}
             alt="Aula ao vivo entre professor e aluno"
             width={1280}
             height={720}
