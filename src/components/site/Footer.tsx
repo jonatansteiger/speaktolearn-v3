@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <Logo variant="cream" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/65">
-              Inglês de forma natural, com um método premium para quem busca resultados reais.
+              Inglês de forma natural, com um método para quem busca resultados reais.
             </p>
           </div>
 
