@@ -5,7 +5,7 @@ import { SectionHeader } from "./Method";
 
 const faqs = [
   { q: "Para quem o curso de inglês Speak To Learn é indicado?", a: "Para profissionais, estudantes e empresas que buscam inglês de verdade — do iniciante ao avançado — com acompanhamento próximo e foco em fluência aplicada ao dia a dia." },
-  { q: "Como são as aulas ao vivo?", a: "Aulas individuais ou em pequenos grupos, conduzidas por professores experientes em nossa plataforma, sempre dinâmicas e com material exclusivo." },
+  { q: "Como são as aulas ao vivo?", a: "Aulas em pequenos grupos de 3 à 6 pessoas no máximo, conduzidas por professores experientes que moram nos Estados Unidos, sempre dinâmicas e com material exclusivo." },
   { q: "Qual o nível do curso?", a: "Trabalhamos com todos os níveis do CEFR (A1 ao C2). Sua trilha é definida a partir da avaliação inicial e ajustada conforme você evolui." },
   { q: "Posso fazer o curso pelo celular ou tablet?", a: "Sim. A plataforma é totalmente responsiva. Você pode estudar e participar das aulas pelo computador, tablet ou celular." },
   { q: "Como funciona o plano corporativo?", a: "Desenhamos planos sob medida para empresas, com gestão de turmas, relatórios de evolução e foco nos objetivos do seu time." },
