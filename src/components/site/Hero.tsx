@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Mic, Video, MoreHorizontal, PhoneOff, Sparkles, Users, TrendingUp } from "lucide-react";
+import { Sparkles, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 import videoCallAsset from "@/assets/aula-speaktolearn.jpeg.asset.json";
 import usaFlagAsset from "@/assets/usa-flag.png.asset.json";
@@ -98,9 +98,6 @@ function VideoCallCard() {
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          {/* center divider */}
-          <div aria-hidden className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/15 sm:block" />
-
           {/* LIVE badge */}
           <div
             className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-wider text-white"
@@ -108,19 +105,6 @@ function VideoCallCard() {
           >
             <span className="live-dot h-2 w-2 rounded-full" style={{ background: "var(--green)" }} />
             LIVE
-          </div>
-
-          {/* call bar */}
-          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-5">
-            <div
-              className="flex items-center gap-2 rounded-full px-3 py-2"
-              style={{ background: "rgba(15,34,61,0.85)", backdropFilter: "blur(10px)" }}
-            >
-              <CallBtn><Mic size={15} /></CallBtn>
-              <CallBtn><Video size={15} /></CallBtn>
-              <CallBtn><MoreHorizontal size={15} /></CallBtn>
-              <CallBtn danger><PhoneOff size={15} /></CallBtn>
-            </div>
           </div>
         </div>
       </div>
