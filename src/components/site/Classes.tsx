@@ -49,9 +49,10 @@ export function Classes() {
                 Para quem quer construir uma base sólida e evoluir com consistência.
                 <br />
                 <br />
-                Aulas <strong className="text-white">duas vezes por semana</strong>, no ritmo certo para
+                <br />
+                Aulas duas vezes por semana, no ritmo certo para
                 construir uma base consistente e chegar do <strong className="text-white">Básico ao Avançado</strong>{" "}
-                sem pressa.
+                progressivamente.
               </>
             }
             items={[
@@ -68,7 +69,7 @@ export function Classes() {
                 </>
               ),
               quote:
-                "Indicado para: alunos que querem evoluir com segurança, sem pressa e sem sobrecarga.",
+                "Indicado para: alunos que querem evoluir, com aulas semanais que se encaixem na sua rotina.",
             }}
           />
 
@@ -87,7 +88,7 @@ export function Classes() {
               </>
             }
             items={[
-              { icon: Clock, label: "Duração:", value: "3 meses (50 aulas no total) / 1 hora por dia" },
+              { icon: Clock, label: "Duração:", value: "2 à 3 meses / 1 hora por dia" },
               { icon: CalendarDays, label: "Rotina:", value: "Aulas todos os dias, de segunda a sexta" },
               { icon: BookOpen, label: "Material:", value: "English by the Natural Method" },
             ]}
@@ -128,9 +129,8 @@ export function Classes() {
               title: "O Diferencial: Profundidade",
               text: (
                 <>
-                  Compreensão literária, ampliação drástica de vocabulário e{" "}
-                  <strong className="text-white">conversação de alto nível</strong> através de textos
-                  clássicos.
+                  Compreensão literária, ampliação de vocabulário e{" "}
+                  <strong className="text-white">conversação através de textos</strong> clássicos.
                 </>
               ),
               quote:
@@ -155,7 +155,7 @@ export function Classes() {
             items={[
               { icon: Clock, label: "Duração:", value: "1 hora por aula" },
               { icon: CalendarDays, label: "Progressão:", value: "Contínua, no ritmo da criança" },
-              { icon: BookOpen, label: "Material:", value: "Moderado — foco em jogos e interação" },
+              { icon: BookOpen, label: "Material:", value: "English By the Natural Method + Aulas dinâmicas (histórias, músicas, jogos...)" },
             ]}
             highlight={{
               icon: Smile,
@@ -167,7 +167,7 @@ export function Classes() {
                 </>
               ),
               quote:
-                "Indicado para: crianças que nunca tiveram contato com o inglês ou que precisam desenvolver contato frequente com o inglês de forma leve.",
+                "Indicado para: crianças que nunca tiveram contato com o inglês ou que precisam desenvolver contato frequente com o inglês de forma natural. ",
             }}
           />
         </div>
