@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { Sparkles, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 import videoCallAsset from "@/assets/aula-speaktolearn.jpeg.asset.json";
@@ -112,13 +111,4 @@ function VideoCallCard() {
   );
 }
 
-function CallBtn({ children, danger }: { children: ReactNode; danger?: boolean }) {
-  return (
-    <span
-      className="grid h-9 w-9 place-items-center rounded-full text-white"
-      style={{ background: danger ? "#c0392b" : "rgba(255,255,255,0.14)" }}
-    >
-      {children}
-    </span>
-  );
 }
