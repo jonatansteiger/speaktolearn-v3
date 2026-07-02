@@ -288,7 +288,8 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacin
 .faq-item.open .faq-toggle { transform: rotate(45deg); }
 .faq-a { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .4s ease; }
 .faq-item.open .faq-a { grid-template-rows: 1fr; }
-.faq-a > p { min-height: 0; margin: 0; padding: 0 48px 20px 0; font-size: .875rem; line-height: 1.6; color: rgba(28,26,23,.7); }
+.faq-a-inner { min-height: 0; overflow: hidden; }
+.faq-a p { margin: 0; padding: 0 48px 20px 0; font-size: .875rem; line-height: 1.6; color: rgba(28,26,23,.7); }
 
 /* =========================================================
  * FOOTER
